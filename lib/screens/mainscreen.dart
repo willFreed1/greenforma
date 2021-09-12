@@ -83,6 +83,7 @@ class _MainScreenState extends State<MainScreen> {
                       context.read<AuthService>().signUp(
                         email,
                         password,
+                        "user",
                       ).then((value) async {
                         User user = FirebaseAuth.instance.currentUser;
 
@@ -90,6 +91,7 @@ class _MainScreenState extends State<MainScreen> {
                           'uid': user.uid,
                           'email': email,
                           'password': password,
+                          'role': 'user',
                         });
                       });
                     }

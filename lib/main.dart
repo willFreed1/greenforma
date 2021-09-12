@@ -2,11 +2,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:greenforma/screens/homescreen.dart';
 import 'package:greenforma/screens/mainscreen.dart';
+import 'package:greenforma/screens/splashscreen.dart';
 import 'package:greenforma/services/auth_services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp();
@@ -40,7 +42,7 @@ class AuthWrapper extends StatelessWidget{
     final user = context.watch<User>();
 
     if(user != null){
-      return HomeScreen();
+      return SplashScreen();
     }
     return MainScreen();
   }
@@ -48,7 +50,7 @@ class AuthWrapper extends StatelessWidget{
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({ Key key,  this.title}) : super(key: key);
+  MyHomePage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect

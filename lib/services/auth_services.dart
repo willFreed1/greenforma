@@ -17,7 +17,7 @@ class AuthService {
     }
   }
 
-  Future<String> signUp(String email, String password) async {
+  Future<String> signUp(String email, String password, String role) async {
     try{
       await _auth.createUserWithEmailAndPassword(email: email, password: password).then((value) async {
         User user = FirebaseAuth.instance.currentUser;
